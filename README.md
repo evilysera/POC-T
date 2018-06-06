@@ -21,7 +21,12 @@
 - 新增cors扫描：cors.py
 - 修改weblogic wls xmldecode反序列化：weblogic-wls.py
 
-
+Tips:
+- script 自动补全
+	- 添加alias
+		alias poc-cd="cd /Users/yea/tool/git/POC-T/script/"
+		alias poc-t="python /Users/yea/tool/git/POC-T/POC-T.py"
+	- poc-t -s shiro-deserial-rce.py -iS a.com
 
 联系作者
 ----
