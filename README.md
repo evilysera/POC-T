@@ -3,8 +3,6 @@
 
 脚本调用框架，用于渗透测试中 **采集|爬虫|爆破|批量PoC** 等需要并发的任务。  
 
-![banner.png](https://github.com/Xyntax/POC-T/blob/2.0/doc/banner.png) 
-
 
 
 特点
@@ -23,6 +21,7 @@
 - 修改shiro反序列化扫描：shiro-deserial-rce.py
 - 新增cors扫描：cors.py
 - 修改weblogic wls xmldecode反序列化：weblogic-wls.py
+
 
 
 其他
