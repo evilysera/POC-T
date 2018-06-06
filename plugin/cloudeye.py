@@ -39,22 +39,22 @@ class CloudEye:
     def getRandomDomain(self, custom='poc'):
         """
         full domain = [random].[custom].[unique].dnslog.info
-        e.g. fezarvgo.poc.ee8a6f.dnslog.info
+        mldlkkvxjo.shiro.06pec0.ceye.io
         """
         self.custom = custom
-        return '%s.%s.%s.dnslog.info' % (self.random, self.custom, self.unique)
+        return '%s.%s.%s.ceye.io' % (self.random, self.custom, self.unique)
 
     def getDnsRecord(self, delay=2):
         time.sleep(delay)
         query = self.random + '.' + self.custom
-        api_base = 'http://cloudeye.me/api/{key}/{domain}/DNSLog/'.format(key=key, domain=query)
-        return requests.post(api_base).content
+        api_base = 'http://api.ceye.io/v1/records?token={key}&type=dns&filter={domain}'.format(key=key, domain=query)
+        return requests.get(api_base).content
 
     def getHttpRecord(self, delay=2):
         time.sleep(delay)
         query = self.random + '.' + self.custom
-        api_base = 'http://cloudeye.me/api/{key}/{domain}/ApacheLog/'.format(key=key, domain=query)
-        return requests.post(api_base).content
+        api_base = 'http://api.ceye.io/v1/records?token={key}&type=request&filter={domain}'.format(key=key, domain=query)
+        return requests.get(api_base).content
 
     def verifyDNS(self, delay=2):
         return 'dnslog.info' in self.getDnsRecord(delay)
@@ -66,12 +66,12 @@ class CloudEye:
 def queryDnsRecord(domain, delay=2):
     time.sleep(delay)
     domain = domain.replace(uniq_domain + '.dnslog.info', '').rstrip('.')
-    api_base = 'http://cloudeye.me/api/{key}/{domain}/DNSLog/'.format(key=key, domain=domain)
-    return requests.post(api_base).content
+    api_base = 'http://api.ceye.io/v1/records?token={key}&type=dns&filter={domain}'.format(key=key, domain=query)
+    return requests.get(api_base).content
 
 
 def queryHttpRecord(domain, delay=2):
     time.sleep(delay)
     domain = domain.replace(uniq_domain + '.dnslog.info', '').rstrip('.')
-    api_base = 'http://cloudeye.me/api/{key}/{domain}/ApacheLog/'.format(key=key, domain=domain)
-    return requests.post(api_base).content
+    api_base = 'http://api.ceye.io/v1/records?token={key}&type=request&filter={domain}'.format(key=key, domain=query)
+    return requests.get(api_base).content

