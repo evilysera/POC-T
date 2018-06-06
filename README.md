@@ -34,6 +34,6 @@ Tips
 
 联系作者
 ----
-* mail:yea@init1.in
+* mail: yea@init1.in
 
   
