@@ -10,5 +10,5 @@
 .tox
 .idea
 output
-data
 toolkit.conf
+data
