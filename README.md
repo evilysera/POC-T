@@ -4,7 +4,6 @@
 脚本调用框架，用于渗透测试中 **采集|爬虫|爆破|批量PoC** 等需要并发的任务。  
 
 
-
 特点
 ---
 * 支持多线程/Gevent两种并发模式  
@@ -23,11 +22,6 @@
 - 修改weblogic wls xmldecode反序列化：weblogic-wls.py
 
 
-
-其他
----
-* [问题反馈](https://github.com/evilysera/POC-T/issues/new)
-* [版权声明](https://github.com/evilysera/POC-T/wiki/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E)
 
 联系作者
 ----
