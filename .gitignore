@@ -4,6 +4,7 @@
 *.lprof
 *.py[cod]
 *.swp
+*.conf
 .coverage
 .svn
 .tox
