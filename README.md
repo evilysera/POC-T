@@ -26,8 +26,8 @@
 
 其他
 ---
-* [问题反馈](https://github.com/Xyntax/POC-T/issues/new)
-* [版权声明](https://github.com/Xyntax/POC-T/wiki/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E)
+* [问题反馈](https://github.com/evilysera/POC-T/issues/new)
+* [版权声明](https://github.com/evilysera/POC-T/wiki/%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E)
 
 联系作者
 ----
