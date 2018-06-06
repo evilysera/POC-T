@@ -31,7 +31,7 @@ Tips
 		alias poc-t="python /Users/yea/tool/git/POC-T/POC-T.py"
 		```
 	![](doc/autocomplete.png)
-
+- 1
 
 联系作者
 ----
