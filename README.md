@@ -30,7 +30,8 @@ Tips
 		alias poc-cd="cd /Users/yea/tool/git/POC-T/script/"
 		alias poc-t="python /Users/yea/tool/git/POC-T/POC-T.py"
 		```
-	- poc-t -s shiro-deserial-rce.py -iS a.com
+	![](doc/autocomplete.png)
+
 
 联系作者
 ----
